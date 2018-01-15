@@ -4,7 +4,24 @@
 // };
 
 // But instead we're going to implement it from scratch:
-var getElementsByClassName = function(className
-) {
+
+//base case is if it has the classname push it to the array
+//check to see if has children then 
+var getElementsByClassName = function(className) {
   // your code here
+  var outputs = [];
+
+  function checkNodes(node) {
+    if (node.classList && node.classList.contains(className)) {
+      outputs.push(node);
+    }
+    if (node.childNodes) {
+      var children = node.childNodes;
+      for (var i = 0; i < children.length; i++) {
+        checkNodes(children[i]);
+      }
+    } 
+  }  
+  checkNodes(document.body);
+  return outputs;
 };
