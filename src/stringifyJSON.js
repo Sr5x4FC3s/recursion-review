@@ -26,9 +26,8 @@ var stringifyJSON = function(obj) {
     var keys = Object.keys(obj);
     var objArr = [];
     for (var i = 0; i < keys.length; i++) {
-      console.log(keys[i]);
-      if (keys[i] === undefined || keys[i] === 'functions') { // empty obj || obj === function
-        return '{}';
+      if (typeof obj[keys[i]] === 'undefined' || typeof obj[keys[i]] === 'function') { // empty obj || obj === function
+        continue;
       }
       objArr.push(stringifyJSON(keys[i]) + ':' + stringifyJSON(obj[keys[i]]));
     }
