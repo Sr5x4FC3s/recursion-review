@@ -4,4 +4,5 @@
 // but you're not, so you'll write it from scratch:
 var parseJSON = function(json) {
   // your code goes here
+  // /([\[\{])([A-Za-z0-9'"]\w+)(['"])([\}\]])/g regex will match '['apples']'
 };
